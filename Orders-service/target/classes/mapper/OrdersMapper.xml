@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.June.Orders.mapper.OrdersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.June.Common.pojo.Orders">
+        <id column="orderid" property="orderid" />
+        <result column="userid" property="userid" />
+        <result column="addressid" property="addressid" />
+        <result column="goodsid" property="goodsid" />
+        <result column="goodsnum" property="goodsnum" />
+        <result column="status" property="status" />
+        <result column="buydate" property="buydate" />
+        <result column="paytime" property="paytime" />
+        <result column="payprice" property="payprice" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        orderid, userid, addressid, goodsid, goodsnum, status, buydate, paytime, payprice
+    </sql>
+
+    <select id="getNewOrderid" resultType="java.lang.Long">
+        select max(LAST_INSERT_ID(orderid)) from orders;
+    </select>
+
+    <select id="getOrder" resultType="com.June.Common.pojo.Orders">
+        select
+            o.orderid,
+            o.userid,
+            o.addressid,
+            o.goodsid,
+            o.goodsnum,
+            o.status,
+            o.buydate,
+            o.paytime,
+            o.payprice
+        from
+            orders as o
+        where
+            o.userid=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Orders-service" />
+        <module name="Eureka-server" />
+        <module name="Feign-api" />
+        <module name="Common" />
+        <module name="User-service" />
+        <module name="Admin-service" />
+        <module name="Gateway" />
+        <module name="Goods-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Order-service" target="1.8" />
+      <module name="User-services" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Admin-service" options="-parameters" />
+      <module name="Common" options="-parameters" />
+      <module name="Eureka-server" options="-parameters" />
+      <module name="Feign-api" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
+      <module name="Goods-service" options="-parameters" />
+      <module name="Order-service" options="-parameters" />
+      <module name="Orders-service" options="-parameters" />
+      <module name="User-service" options="-parameters" />
+      <module name="User-services" options="-parameters" />
+    </option>
+  </component>
+</project>

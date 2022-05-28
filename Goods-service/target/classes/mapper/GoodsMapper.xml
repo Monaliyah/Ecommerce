@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.June.Goods.mapper.GoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.June.Common.pojo.Goods">
+        <id column="goodsid" property="goodsid" />
+        <result column="userid" property="userid" />
+        <result column="name" property="name" />
+        <result column="detail" property="detail" />
+        <result column="goodsstock" property="goodsstock" />
+        <result column="status" property="status" />
+        <result column="price" property="price" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        goodsid, userid, name, detail, goodsstock, status, price
+    </sql>
+
+    <select id="getGoodsByGoodsId" resultType="com.June.Common.pojo.Goods">
+        select
+            g.goodsid,
+            g.userid,
+            g.name,
+            g.detail,
+            g.goodsstock,
+            g.status,
+            g.price
+        from
+	        goods as g
+	    where
+	        g.goodsid=#{id}
+    </select>
+
+    <select id="getGoodsVo" resultType="com.June.Common.Vo.GoodsVo.GoodsVo">
+        select
+            g.goodsid,
+            g.userid,
+            g.name,
+            g.detail,
+            g.price
+        from
+	        goods as g
+	    where
+	        g.goodsid=#{id}
+    </select>
+</mapper>

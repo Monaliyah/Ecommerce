@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.June.User.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.June.Common.pojo.User">
+        <id column="id" property="id" />
+        <result column="nickname" property="nickname" />
+        <result column="password" property="password" />
+        <result column="salt" property="salt" />
+        <result column="role" property="role" />
+        <result column="name" property="name" />
+        <result column="headphoto" property="headphoto" />
+        <result column="sex" property="sex" />
+        <result column="defaultaddress" property="defaultaddress" />
+        <result column="telephone" property="telephone" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, nickname, password, salt, role, name, headphoto, sex, defaultaddress, telephone
+    </sql>
+
+    <select id="getUserHeader" resultType="com.June.Common.Vo.UserVo.Owner">
+        select
+            u.id,
+            u.nickname,
+            u.headphoto,
+            u.role
+        from
+	        user as u
+	    where
+	        u.id=#{id}
+    </select>
+
+    <select id="getUserLoginById" resultType="com.June.Common.Vo.UserVo.UserLoginVo">
+        select
+            u.id,
+            u.nickname,
+            u.password,
+            u.salt,
+            u.role
+        from
+	        user as u
+	    where
+	        u.id=#{id}
+    </select>
+
+    <select id="getOneUser" resultType="com.June.Common.pojo.User">
+        select
+            u.id,
+            u.nickname,
+            u.password,
+            u.salt,
+            u.role,
+            u.name,
+            u.headphoto,
+            u.sex,
+            u.defaultaddress,
+            u.telephone
+        from
+	        user as u
+	    where
+	        u.id=#{id}
+    </select>
+
+    <select id="getUserInfoVo" resultType="com.June.Common.Vo.UserVo.UserInfoVo">
+        select
+            u.id,
+            u.nickname,
+            u.role,
+            u.name,
+            u.headphoto,
+            u.sex,
+            u.defaultaddress,
+            u.telephone
+        from
+	        user as u
+	    where
+	        u.id=#{id}
+    </select>
+</mapper>
