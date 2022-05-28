@@ -33,7 +33,7 @@
 	        g.goodsid=#{id}
     </select>
 
-    <select id="getGoodsVo" resultType="com.June.Common.Vo.GoodsVo.GoodsVo">
+    <select id="getGoodsVo" resultType="com.June.Common.Vo.GoodsVo.GoodsForOrder">
         select
             g.goodsid,
             g.userid,
@@ -53,5 +53,14 @@
 	        goods as g
 	    where
 	        g.status="seckill"
+    </select>
+
+    <select id="getGoodsByUserId" resultType="com.June.Common.pojo.Goods">
+        select
+            g.*
+        from
+	        goods as g
+	    where
+	        g.userid=#{id}
     </select>
 </mapper>

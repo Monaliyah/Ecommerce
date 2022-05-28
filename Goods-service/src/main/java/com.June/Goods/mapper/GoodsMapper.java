@@ -1,6 +1,6 @@
 package com.June.Goods.mapper;
 
-import com.June.Common.Vo.GoodsVo.GoodsVo;
+import com.June.Common.Vo.GoodsVo.GoodsForOrder;
 import com.June.Common.pojo.Goods;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -18,7 +18,9 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 
     Goods getGoodsByGoodsId(Long id);
 
-    GoodsVo getGoodsVo(Long id);
+    GoodsForOrder getGoodsVo(Long id);
 
     List<Goods> getSecKillGoods();
+
+    List<Goods> getGoodsByUserId(Long id);
 }

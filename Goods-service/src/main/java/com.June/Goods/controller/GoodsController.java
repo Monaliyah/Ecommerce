@@ -1,7 +1,7 @@
 package com.June.Goods.controller;
 
 
-import com.June.Common.Vo.GoodsVo.GoodsVo;
+import com.June.Common.Vo.GoodsVo.GoodsForOrder;
 import com.June.Common.pojo.Goods;
 import com.June.Feign.Vo.RespBean;
 import com.June.Goods.service.IGoodsService;
@@ -36,10 +36,11 @@ public class GoodsController implements InitializingBean {
 
     private Map<Long,Boolean> EmptyStockMap=new HashMap<>();
 
-    @RequestMapping(value="/getGoods",method = RequestMethod.POST)
+    @RequestMapping(value="/getGoodsByUserId",method = RequestMethod.POST)
     @ResponseBody
-    public RespBean getGoods(@RequestParam("id")  Long id) {
-        return goodsService.getGoodsByGoodsId(id);
+    public RespBean getGoodsByUserId(@RequestHeader("id")Long id) {
+        System.out.println(id);
+        return goodsService.getGoodsByUserId(id);
     }
 
     @RequestMapping(value="/getGoodsDetail",method = RequestMethod.POST)
@@ -54,7 +55,7 @@ public class GoodsController implements InitializingBean {
 
     @RequestMapping(value = "/getGoodsVo/{id}",method = RequestMethod.POST)
     @ResponseBody
-    public GoodsVo getGoodsVo(@PathVariable Long id){ return goodsService.getGoodsVo(id); }
+    public GoodsForOrder getGoodsVo(@PathVariable Long id){ return goodsService.getGoodsVo(id); }
 
     @RequestMapping(value = "/getSecKillGoods",method = RequestMethod.POST)
     @ResponseBody

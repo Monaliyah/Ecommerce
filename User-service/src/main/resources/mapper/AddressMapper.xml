@@ -45,5 +45,5 @@
 
     <select id="getNewAddressid" resultType="java.lang.Integer">
         select max(LAST_INSERT_ID(addressid)) from address where userid=#{userid};
-    </select
+    </select>
 </mapper>

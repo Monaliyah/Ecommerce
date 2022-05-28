@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * June
  */
 @Data
-public class GoodsVo {
+public class GoodsForOrder {
     private Long goodsid;
 
     private Long userid;

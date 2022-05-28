@@ -1,6 +1,6 @@
 package com.June.Goods.service;
 
-import com.June.Common.Vo.GoodsVo.GoodsVo;
+import com.June.Common.Vo.GoodsVo.GoodsForOrder;
 import com.June.Common.pojo.Goods;
 import com.June.Feign.Vo.RespBean;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -19,16 +19,16 @@ import java.util.Map;
  */
 public interface IGoodsService extends IService<Goods> {
 
-
-    RespBean getGoodsByGoodsId(Long id);
+    RespBean getGoodsByUserId(Long id);
 
     RespBean getGoodsDetailByGoodsId(Long id);
 
     int decGoodsStock(Long id,Integer num);
 
-    GoodsVo getGoodsVo(Long id);
+    GoodsForOrder getGoodsVo(Long id);
 
     List<Goods> getSecKillGoods();
 
     RespBean doSecKillGoods(Long id, String token, Long goodsid, Integer addressid, Integer goodsnum, BigDecimal payprice, Map<Long, Boolean> emptyStockMap);
+
 }

@@ -13,3 +13,22 @@ spring:
         max-idle: 200
         min-idle: 5
     password: June010622
+  rabbitmq:
+    host: localhost
+    username: June
+    password: June010622
+    virtual-host: /work
+    port: 5672
+    listener:
+      simple:
+        auto-startup: true
+        max-concurrency: 10
+        prefetch: 1
+        default-requeue-rejected: true
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000ms
+        max-attempts: 3
+        max-interval: 10000ms
+        multiplier: 1

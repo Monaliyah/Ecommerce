@@ -39,8 +39,8 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
     @Override
     public RespBean modifyAddress(Long id, String token, Integer addressid, String address,Long telephone, String username){
 
-        boolean result = addressService.update(new UpdateWrapper<Address>().setSql("address=" + address)
-                .setSql("telephone=" + telephone).setSql("username="+username)
+        boolean result = addressService.update(new UpdateWrapper<Address>().set("address" , address)
+                .setSql("telephone=" + telephone).set("username",username)
                 .eq("userid",id).eq("addressid", addressid));
         if(!result){
             return RespBean.error(RespBeanEnum.ERROR);

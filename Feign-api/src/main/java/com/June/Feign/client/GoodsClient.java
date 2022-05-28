@@ -1,6 +1,6 @@
 package com.June.Feign.client;
 
-import com.June.Common.Vo.GoodsVo.GoodsVo;
+import com.June.Common.Vo.GoodsVo.GoodsForOrder;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,5 +14,5 @@ public interface GoodsClient {
     int decGoodsStock(@PathVariable Long id,@PathVariable Integer num);
 
     @RequestMapping(value = "/Goods/getGoodsVo/{id}",method = RequestMethod.POST)
-    GoodsVo getGoodsVo(@PathVariable Long id);
+    GoodsForOrder getGoodsVo(@PathVariable Long id);
 }

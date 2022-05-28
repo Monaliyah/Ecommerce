@@ -1,6 +1,6 @@
 package com.June.Orders.service.impl;
 
-import com.June.Common.Vo.GoodsVo.GoodsVo;
+import com.June.Common.Vo.GoodsVo.GoodsForOrder;
 import com.June.Common.Vo.MQMessage.doSecKillGoodsMessage;
 import com.June.Common.Vo.OrderVo.OrderVo;
 import com.June.Common.pojo.Orders;
@@ -60,9 +60,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         List<Orders> orders=ordersMapper.getOrder(id);
         List<OrderVo> orderVos=new ArrayList<>();
         for(int i=0;i<orders.size();i++) {
-            GoodsVo goodsVo = goodsClient.getGoodsVo(orders.get(i).getGoodsid());
+            GoodsForOrder goodsForOrder = goodsClient.getGoodsVo(orders.get(i).getGoodsid());
             OrderVo orderVo = new OrderVo();
-            orderVo.setGoodsVo(goodsVo);
+            orderVo.setGoodsForOrder(goodsForOrder);
             orderVo.setOrders(orders.get(i));
             orderVos.add(orderVo);
         }

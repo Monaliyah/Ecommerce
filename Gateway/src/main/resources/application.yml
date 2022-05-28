@@ -36,6 +36,7 @@ spring:
           uri: lb://goodsservice
           predicates:
             - Path=/Goods/getGoodsDetail/**
+            - Path=/Goods/getGoodsByUserId/**
           filters:
             - AddRequestHeader=tokenuseless,true
         - id: goodsservice/

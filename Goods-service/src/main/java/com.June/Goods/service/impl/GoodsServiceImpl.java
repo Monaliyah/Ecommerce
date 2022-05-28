@@ -2,7 +2,7 @@ package com.June.Goods.service.impl;
 
 import com.June.Common.Utils.JsonUtil;
 import com.June.Common.Vo.GoodsVo.GoodsDetail;
-import com.June.Common.Vo.GoodsVo.GoodsVo;
+import com.June.Common.Vo.GoodsVo.GoodsForOrder;
 import com.June.Common.Vo.MQMessage.doSecKillGoodsMessage;
 import com.June.Common.Vo.UserVo.Owner;
 import com.June.Common.pojo.Goods;
@@ -48,8 +48,8 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     private MQSender mqSender;
 
     @Override
-    public RespBean getGoodsByGoodsId(Long id){
-        Goods goods=goodsMapper.getGoodsByGoodsId(id);
+    public RespBean getGoodsByUserId(Long id){
+        List<Goods> goods=goodsMapper.getGoodsByUserId(id);
         if(null==goods){
             return RespBean.error(RespBeanEnum.NULL_GOODS);
         }
@@ -93,7 +93,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
-    public GoodsVo getGoodsVo(Long id){
+    public GoodsForOrder getGoodsVo(Long id){
         return goodsMapper.getGoodsVo(id);
     }
 
